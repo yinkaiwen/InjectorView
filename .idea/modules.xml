@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/InjectorView.iml" filepath="$PROJECT_DIR$/InjectorView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/injectorviewutils/injectorviewutils.iml" filepath="$PROJECT_DIR$/injectorviewutils/injectorviewutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/injectorview/injectorview.iml" filepath="$PROJECT_DIR$/injectorview/injectorview.iml" />
     </modules>
   </component>
 </project>

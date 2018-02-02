@@ -1,1 +1,1 @@
-include ':app', ':injectorviewutils'
+include ':app', ':injectorview'

@@ -1,6 +1,3 @@
-# InjectorView
-injectorview lib's build.gradle code is fellow.
-```
 apply plugin: 'java'//This module this java not java-library.
 
 dependencies {
@@ -16,5 +13,3 @@ targetCompatibility = "1.8"
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
-
-```
