@@ -13,7 +13,6 @@ import com.example.kevin.injectorview.annotation.Injector;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Injector(R.id.btn_set)
     Button mButton;
     @Injector(R.id.et_text)
