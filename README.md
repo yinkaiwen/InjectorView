@@ -1,6 +1,6 @@
 # InjectorView
 You can use this lib such as:
-``
+```
 public class MainActivity extends AppCompatActivity {
 
     @Injector(R.id.btn_set)
@@ -32,13 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-``
-
-
-
-
-
-
+```
 
 injectorview lib's build.gradle code is fellow.
 ```
