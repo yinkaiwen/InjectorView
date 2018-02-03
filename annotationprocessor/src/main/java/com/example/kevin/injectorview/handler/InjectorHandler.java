@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.VariableElement;
+import javax.lang.model.type.TypeMirror;
 
 /**
  * Created by kevin on 2018/2/2.
@@ -25,6 +26,10 @@ public class InjectorHandler extends AbsHandler {
         if (elementsAnnotatedWith != null && !elementsAnnotatedWith.isEmpty()) {
             for (Element element : elementsAnnotatedWith) {
                 String className = element.getEnclosingElement().getSimpleName().toString();
+
+                Element enclosingElement = element.getEnclosingElement();
+                TypeMirror typeMirror = enclosingElement.asType();
+                System.out.println(typeMirror.toString());
                 String pkName = mElementsUtils.getPackageOf(element).getQualifiedName().toString();
                 String key = pkName + className;
                 InjectorInfo info = map.get(key);

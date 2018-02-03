@@ -2,6 +2,7 @@ package com.example.kevin.injectorview.writer;
 
 import com.example.kevin.injectorview.invoketarget.InjectorTarget;
 import com.example.kevin.injectorview.javabean.InjectorInfo;
+import com.squareup.javapoet.ClassName;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -20,6 +21,8 @@ import static com.example.kevin.injectorview.annotation.Injector.INJECTOR;
  */
 
 public class DefaultWriter implements JavaFileWriter {
+
+    private static final String ViewFinderTag = "com.example.kevin.injectorviewapi.ViewFinder";
 
     @Override
     public void write(Map<String, InjectorInfo> map, Filer filer) {
@@ -57,6 +60,7 @@ public class DefaultWriter implements JavaFileWriter {
                         "\n" +
                         "import android.app.Activity;\n" +
                         "import %s;\n" +
+                        "import %s;\n" +
                         "\n" +
                         "/**\n" +
                         " * Created by kevin on %s.\n" +
@@ -67,6 +71,7 @@ public class DefaultWriter implements JavaFileWriter {
                         "\n",
                 info.pkName,
                 InjectorTarget.class.getName(),
+                ViewFinderTag,
                 getDate()
         );
         sb.append(title);
@@ -86,8 +91,9 @@ public class DefaultWriter implements JavaFileWriter {
         for (Map.Entry<String, Integer> entry : values.entrySet()) {
             String fieldName = entry.getKey();
             int id = entry.getValue();
-            sb.append(String.format("        a.%s = a.findViewById(%s);\n",
+            sb.append(String.format("        a.%s = ViewFinder.findViewById(%s,%s);\n",
                     fieldName,
+                    "a",
                     id
             ));
         }
@@ -107,6 +113,7 @@ public class DefaultWriter implements JavaFileWriter {
     private String getSrc(InjectorInfo injectorInfo) {
         return injectorInfo.pkName + "." + injectorInfo.className + INJECTOR;
     }
+
 
 
 }

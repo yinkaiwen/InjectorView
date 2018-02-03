@@ -44,6 +44,7 @@ public class MyProcessor extends AbstractProcessor {
                 handler.handle(roundEnv);
             }
         }
+
         return true;
     }
 

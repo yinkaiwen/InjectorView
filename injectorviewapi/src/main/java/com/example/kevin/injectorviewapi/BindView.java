@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.example.kevin.injectorview.invoketarget.InjectorTarget;
 
+import java.lang.reflect.Field;
+
 import static com.example.kevin.injectorview.annotation.Injector.INJECTOR;
 
 /**
@@ -14,6 +16,9 @@ import static com.example.kevin.injectorview.annotation.Injector.INJECTOR;
  */
 
 public class BindView {
+    public static final String TAG = "DD";
+
+
     public static void injector(Activity activity) {
         InjectorTarget<Activity> target = getTarget(activity.getClass());
         if (target != null) {
@@ -41,7 +46,26 @@ public class BindView {
         return target;
     }
 
-    public static void injector(Fragment fragment, View view) {
+    public static void injector(Fragment fragment,View rootView) {
+        InjectorTarget<Fragment> handler = (InjectorTarget<Fragment>) getTarget(fragment.getClass());
+        if(setRootViewBeforeAuto(fragment,rootView)){
+            handler.injector(fragment);
+        }
+    }
 
+
+    private static boolean setRootViewBeforeAuto(Fragment fragment, View rootView){
+        Class<? extends Fragment> cls = fragment.getClass();
+        try {
+            Field mView = cls.getSuperclass().getDeclaredField("mView");
+            mView.setAccessible(true);
+            mView.set(fragment,rootView);
+            return true;
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
