@@ -3,38 +3,38 @@ You can use this lib such as:
 ```
 public class MainActivity extends AppCompatActivity {
 
-    @Injector(R.id.btn_set)
-    Button mButton;
-    @Injector(R.id.et_text)
-    EditText mEditText;
     @Injector(R.id.tv_info)
     TextView mTextView;
-    @Injector(R.id.ib_button)
-    ImageButton mImageButton;
-    @Injector(R.id.layout)
-    ConstraintLayout mLayout;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        InjectorView.injector(this);
+        BindView.injector(this);
         mTextView.setText("Success");
-
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
 }
 ```
+or use this in Fragment(V4):
+```
+public class TestFragment extends Fragment {
 
-injectorview lib's build.gradle code is fellow.
+    @Injector(R.id.tv_fragment)
+    TextView mTextView;
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_test, container, false);
+        BindView.injector(this,view);
+        mTextView.setText("success");
+        return view;
+    }
+}
+```
+
+annotationprocessor lib's build.gradle code is fellow.
 ```
 apply plugin: 'java'//This module this java not java-library.
 
@@ -63,4 +63,15 @@ dependencies {
     annotationProcessor project(':injectorview')
     implementation project(':injectorview')
 }
+```
+
+java lib can not use android api safe,so create a android lib and can use android api.This android-lib build.gradle is fellow.
+```
+dependencies {
+    //pass....
+    
+    annotationProcessor project(':annotationprocessor')
+    implementation project(':annotationprocessor')
+}
+
 ```
