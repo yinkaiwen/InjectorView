@@ -13,5 +13,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.CLASS)
 public @interface Injector {
+    public static final String INJECTOR = "Injector";
     int value();
 }

@@ -8,8 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/annotationprocessor" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/injectorview" />
+            <option value="$PROJECT_DIR$/injectorviewapi" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

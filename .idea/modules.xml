@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/InjectorView.iml" filepath="$PROJECT_DIR$/InjectorView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/annotationprocessor/injectorview.iml" filepath="$PROJECT_DIR$/annotationprocessor/injectorview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/injectorview/injectorview.iml" filepath="$PROJECT_DIR$/injectorview/injectorview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/injectorviewapi/injectorviewapi.iml" filepath="$PROJECT_DIR$/injectorviewapi/injectorviewapi.iml" />
     </modules>
   </component>
 </project>

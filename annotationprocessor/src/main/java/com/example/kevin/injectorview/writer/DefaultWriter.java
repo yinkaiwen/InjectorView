@@ -12,7 +12,7 @@ import javax.annotation.processing.Filer;
 import javax.lang.model.element.Element;
 import javax.tools.JavaFileObject;
 
-import static com.example.kevin.injectorview.InjectorView.INJECTOR;
+import static com.example.kevin.injectorview.annotation.Injector.INJECTOR;
 
 /**
  * Created by kevin on 2018/2/2.
@@ -71,11 +71,11 @@ public class DefaultWriter implements JavaFileWriter {
         );
         sb.append(title);
 
-        String content = String.format("public class %s%s implements InjectorTarget {\n" +
+        String content = String.format("public class %s%s<T> implements InjectorTarget<T> {\n" +
                         "\n" +
                         "    @Override\n" +
-                        "    public void injector(Activity activity) {\n" +
-                        "        %s a = (%s) activity;\n",
+                        "    public void injector(T target) {\n" +
+                        "        %s a = (%s) target;\n",
                 info.className,
                 INJECTOR,
                 info.className,
