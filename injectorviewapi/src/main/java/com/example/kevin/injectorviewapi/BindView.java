@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.example.kevin.injectorview.invoketarget.InjectorTarget;
-
 import java.lang.reflect.Field;
 
 import static com.example.kevin.injectorview.annotation.Injector.INJECTOR;
@@ -16,8 +15,6 @@ import static com.example.kevin.injectorview.annotation.Injector.INJECTOR;
  */
 
 public class BindView {
-    public static final String TAG = "DD";
-
 
     public static void injector(Activity activity) {
         InjectorTarget<Activity> target = getTarget(activity.getClass());
